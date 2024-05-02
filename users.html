@@ -1,0 +1,192 @@
+<SCRIPT language="JavaScript">
+var password;
+password=prompt('Enter Password ','');
+if (password=="admin")
+    alert('Correct Password! Click OK to Enter!');
+else {
+     alert('Incorrect Password! Try again');
+     location.href = '/admin';
+}
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADMIN</title>
+</head>
+<body>
+<center><h1> <u>ADMIN PORTAL PASS TRACK</u></h1></center>
+
+<table border="1" style="float: left">
+    <caption> USER DETAILS</caption>
+    <tr>
+        <th>name</th>
+        <th>email</th>
+        <th>password</th>
+    </tr>
+    {% for user in userDetails %}
+
+
+    <tr>
+        <td>{{user[0]}}</td>
+        <td>{{user[1]}}</td>
+        <td>{{user[2]}}</td>
+
+    </tr>
+    {% endfor %}
+
+</table>
+
+<div>
+
+    <table border="1" style="float:right">
+        <caption>Room Status</caption>
+        <tr>
+            <th> Total Rooms</th>
+            <th> Occupied Rooms</th>
+            <th> Available Rooms </th>
+        </tr>
+        {% for room in rooms_active %}
+
+
+
+        <tr>
+            <td>{{room[0]}}</td>
+            <td>{{room[1]}}</td>
+            <td>{{room[2]}}</td>
+
+
+        </tr>
+        {% endfor %}
+
+    </table>
+</div>
+
+<br><br><br><br><br>
+
+    <form action="/admin" method="post" style="float:right">
+        <div class="container">
+            <label for="Rooms"><b>Enter new number of rooms</b></label>
+
+            <div class="flex">
+                <input type="text" placeholder="New Rooms" name = "rooms" /> <!--<button class="button" type="submit" >Submit</button>-->
+                <input type = "submit" class = "btn" value = "submit">
+            </div>
+        </div>
+
+
+    </form>
+
+<br><br><br><br><br><br><br><br>
+
+<hr>
+<center><h1> <u>ROOMS</u></h1></center>
+
+<div>
+
+    <table border="1" style="float: right">
+        <caption>RESERVATION DETAILS</caption>
+        <tr>
+            <th> checkin</th>
+            <th> checkout</th>
+            <th> adult</th>
+            <th> children</th>
+            <th> email</th>
+            <th> rooms</th>
+
+        </tr>
+        {% for data in reserve %}
+
+
+
+        <tr>
+            <td>{{data[0]}}</td>
+            <td>{{data[1]}}</td>
+            <td>{{data[2]}}</td>
+            <td>{{data[3]}}</td>
+            <td>{{data[4]}}</td>
+            <td>{{data[5]}}</td>
+
+        </tr>
+        {% endfor %}
+
+    </table>
+</div>
+<!-- form to add new rooms-->
+
+
+
+<div>
+
+    <table border="1" >
+        <caption>ALL RESERVATION </caption>
+        <tr>
+            <th> checkin</th>
+            <th> checkout</th>
+            <th> adult</th>
+            <th> children</th>
+            <th> email</th>
+            <th> rooms</th>
+            <th> status</th>
+
+        </tr>
+        {% for data in rooms_all %}
+
+
+
+        <tr>
+            <td>{{data[0]}}</td>
+            <td>{{data[1]}}</td>
+            <td>{{data[2]}}</td>
+            <td>{{data[3]}}</td>
+            <td>{{data[4]}}</td>
+            <td>{{data[5]}}</td>
+            <td>{{data[6]}}</td>
+
+        </tr>
+        {% endfor %}
+
+    </table>
+</div>
+
+<br><br>
+<hr><hr>
+<br>
+
+<center> <h1> <u>FOOD</u></h1></center>
+<br>
+<div>
+
+    <table border="1" >
+        <caption>FOOD ORDERS </caption>
+        <tr>
+            <th> ID</th>
+            <th> Sushi</th>
+            <th> Burrito</th>
+            <th> Wings</th>
+            <th> Email</th>
+
+
+        </tr>
+        {% for data in food %}
+
+
+
+        <tr>
+            <td>{{data[0]}}</td>
+            <td>{{data[1]}}</td>
+            <td>{{data[2]}}</td>
+            <td>{{data[3]}}</td>
+            <td>{{data[4]}}</td>
+
+
+        </tr>
+        {% endfor %}
+
+    </table>
+</div>
+
+</body>
+</html>
+</html>

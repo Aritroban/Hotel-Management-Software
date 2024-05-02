@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pass Track</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+    <link rel = "icon" href = "{{url_for('static', filename='images/logo.png') }}" type = "image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+
+
+</head>
+<body>
+<h6> {% for x in Details %}
+
+    <tr>
+        <td> Hello {{x[0]}}</td>
+    </tr>
+    {% endfor %}</h6>
+<div class="flashes">
+                {% for message in get_flashed_messages() %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+                {% endfor %}
+</div>
+<div class = "book">
+    <form action="/result" method="POST" >
+        <div class = "form-item">
+            <label for = "checkin">Check In Date: </label>
+            <input type = "date" name = "chekin" required>
+        </div>
+        <div class = "form-item">
+            <label for = "checkout">Check Out Date: </label>
+            <input type = "date" name = "chekout" required>
+        </div>
+        <div class = "form-item">
+            <label for = "adult">Adults: </label>
+            <input type = "number" min = "1" value = "1" name = "adult">
+        </div>
+        <div class = "form-item">
+            <label for = "children">Children: </label>
+            <input type = "number" min = "1" value = "1" name = "children">
+        </div>
+        <div class = "form-item">
+            <label for = "rooms">Rooms: </label>
+            <input type = "number" min = "1" value = "1" name = "rooms">
+        </div>
+        <div class = "form-item">
+            <label for = "email">Email: </label>
+            <input type = "email" name = "email" required>
+        </div><br><br>
+        <div class = "form-item">
+            <input type = "submit" class = "btn" value = "Book Now" style="background-color: white; vertical-align: baseline">
+        </div>
+        <p> *Reservation will mailed to email. Pay at hotel* </p>
+
+    </form>
+
+</div>
+<section class = "services sec-width" id = "services">
+    <div class = "title">
+        <h2>services</h2>
+    </div>
+    <div class = "services-container">
+        <!-- single service -->
+        <article class = "service">
+            <div class = "service-icon">
+                        <span>
+                            <i class = "fas fa-utensils"></i>
+                        </span>
+            </div>
+            <div class = "service-content">
+                <h2>Food Service/ Food Runner</h2>
+                <p>Order from a variety of finger licking good food at affordable prices.</p>
+                <button type = "button" class = "btn"><a href='/food' style="text-decoration: none; color: white;">Know More </a></button>
+            </div>
+        </article>
+        <!-- end of single service -->
+        <!-- single service -->
+
+        <!-- end of single service -->
+        <!-- single service -->
+        <article class = "service">
+            <div class = "service-icon">
+                        <span>
+                            <i class="material-icons" style="font-size:60px">local_laundry_service</i>
+                        </span>
+            </div>
+            <div class = "service-content">
+                <h2>Laundry Services</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias blanditiis tempore officia accusamus asperiores. Illum maxime eligendi necessitatibus laudantium iste nisi pariatur doloremque ut illo similique voluptatum enim distinctio perferendis, ad ipsam aspernatur omnis rem autem ex, reiciendis corporis suscipit!</p>
+                <button type = "button" class = "btn">Know More</button>
+            </div>
+        </article>
+        <!-- end of single service -->
+        <!-- single service -->
+
+        <!-- end of single service -->
+    </div>
+</section>
+<section class = "rooms sec-width" id = "rooms">
+    <div class = "title">
+        <h2>rooms</h2>
+    </div>
+    <div class = "rooms-container">
+        <!-- single room -->
+        <article class = "room">
+            <div class = "room-image">
+
+                <img src = "{{ url_for('static', filename='images/img1.jpg') }}" alt = "room image">
+            </div>
+            <div class = "room-text">
+                <h3>Luxury Rooms</h3>
+                <ul>
+                    <li>
+                        <i class = "fas fa-arrow-alt-circle-right"></i>
+                        Lorem ipsum dolor sit amet.
+                    </li>
+                    <li>
+                        <i class = "fas fa-arrow-alt-circle-right"></i>
+                        Lorem ipsum dolor sit amet.
+                    </li>
+                    <li>
+                        <i class = "fas fa-arrow-alt-circle-right"></i>
+                        Lorem ipsum dolor sit amet.
+                    </li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus exercitationem repellendus maxime ullam tempore architecto provident unde expedita quam beatae, dolore eligendi molestias sint tenetur incidunt voluptas. Unde corporis qui iusto vitae. Aut nesciunt id iste, cum esse commodi nemo?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla corporis quasi officiis cumque, fugiat nostrum sunt, tempora animi dicta laborum beatae ratione doloremque. Delectus odio sit eius labore, atque quo?</p>
+                <p class = "rate">
+                    <span>$99.00 /</span> Per Night
+                </p>
+            </div>
+        </article>
+        <!-- end of single room -->
+
+        <!-- single room -->
+        <article class = "room">
+            <div class = "room-image">
+                <img src = "{{ url_for('static', filename='images/img2.jpg') }}" alt = "room image">
+            </div>
+            <div class = "room-text">
+                <h3>Luxury Rooms</h3>
+                <ul>
+                    <li>
+                        <i class = "fas fa-arrow-alt-circle-right"></i>
+                        Lorem ipsum dolor sit amet.
+                    </li>
+                    <li>
+                        <i class = "fas fa-arrow-alt-circle-right"></i>
+                        Lorem ipsum dolor sit amet.
+                    </li>
+                    <li>
+                        <i class = "fas fa-arrow-alt-circle-right"></i>
+                        Lorem ipsum dolor sit amet.
+                    </li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus exercitationem repellendus maxime ullam tempore architecto provident unde expedita quam beatae, dolore eligendi molestias sint tenetur incidunt voluptas. Unde corporis qui iusto vitae. Aut nesciunt id iste, cum esse commodi nemo?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla corporis quasi officiis cumque, fugiat nostrum sunt, tempora animi dicta laborum beatae ratione doloremque. Delectus odio sit eius labore, atque quo?</p>
+                <p class = "rate">
+                    <span>$99.00 /</span> Per Night
+                </p>
+                <button type = "button" class = "btn">book now</button>
+            </div>
+        </article>
+        <!-- end of single room -->
+        <!-- single room -->
+        <article class = "room">
+            <div class = "room-image">
+                <img src = "{{ url_for('static', filename='images/img3.jpg') }}" alt = "room image">
+            </div>
+            <div class = "room-text">
+                <h3>Luxury Rooms</h3>
+                <ul>
+                    <li>
+                        <i class = "fas fa-arrow-alt-circle-right"></i>
+                        Lorem ipsum dolor sit amet.
+                    </li>
+                    <li>
+                        <i class = "fas fa-arrow-alt-circle-right"></i>
+                        Lorem ipsum dolor sit amet.
+                    </li>
+                    <li>
+                        <i class = "fas fa-arrow-alt-circle-right"></i>
+                        Lorem ipsum dolor sit amet.
+                    </li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus exercitationem repellendus maxime ullam tempore architecto provident unde expedita quam beatae, dolore eligendi molestias sint tenetur incidunt voluptas. Unde corporis qui iusto vitae. Aut nesciunt id iste, cum esse commodi nemo?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla corporis quasi officiis cumque, fugiat nostrum sunt, tempora animi dicta laborum beatae ratione doloremque. Delectus odio sit eius labore, atque quo?</p>
+                <p class = "rate">
+                    <span>$99.00 /</span> Per Night
+                </p>
+                <button type = "button" class = "btn">book now</button>
+            </div>
+        </article>
+        <!-- end of single room -->
+    </div>
+</section>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<script>
+function calc()
+{
+  var wings = document.getElementById("wings").value;
+  var burrito= document.getElementById("burrito").value;
+  var sushi= document.getElementById("sushi").value;
+  var total = parseFloat(10) * wings + parseFloat(7) * burrito + parseFloat(10) * sushi
+  var tax = parseFloat(0.08) * total
+  var finalTotal = total + tax
+  if (!isNaN(total))
+    document.getElementById("cart-subtotal").innerHTML = total
+    document.getElementById("cart-tax").innerHTML = tax
+    document.getElementById("finalTotal").innerHTML = finalTotal
+}
+</script>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Food Reservation</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <form action= '/'>
+    <input type="submit" value="Home" />
+    </form>
+</head>
+<style>
+   body {font-family: "Amatic SC", sans-serif}
+   .bgimg {
+   background-color: ;
+   }
+
+    html,body {
+  width: 100%;
+  height: 100%;
+}
+</style>
+<body style="background-color: orange;">
+    <form method="POST" action="">
+        <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">Food Reservation</h1>
+        <h1><b>Wings</b> <span class="w3-right w3-tag w3-dark-grey w3-round" >$10.00</span></h1>
+        <p class="w3-text-black">12 count of crispy fried chicken wings with a choice of BBQ, or Buffalo sauce</p>
+        <div class="pass-quantity w3-col-lg-3 col-md-4 w3-col-sm-3">
+            <label style="margin-left:1120px"   for="pass-quantity" class="pass-quantity">Quantity</label>
+            <input  type="number" name="wings" id="wings" align="center" value="0" min="0" max="10" oninput="calc()" >
+        </div>
+        <hr>
+
+        <h1><b>Burrito</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$7.00</span></h1>
+        <h5 class="w3-text-black">A soft flour tortilla filled with seasoned beef, rice, pinto beans, cheese, guacamole and lettuce.</h5>
+        <div class="pass-quantity w3-col-lg-3 col-md-4 w3-col-sm-3">
+          <label style="margin-left:1120px" for="pass-quantity" class="pass-quantity">Quantity</label>
+          <input type="number" name="burrito" id="burrito" value="0" min="0" max="10" oninput="calc()">
+        </div>
+        <hr>
+
+        <h1><b>Sushi</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$10.00</span></h1>
+        <h5 class="w3-text-black">8 count piece roll of California roll sushi with soy sauce and wasabi</h5>
+        <div class="pass-quantity w3-col-lg-3 col-md-4 w3-col-sm-3">
+          <label style="margin-left:1120px" for="pass-quantity" class="pass-quantity">Quantity</label>
+          <input type="number" name="sushi" id="sushi" value="0" min="0" max="10" oninput="calc()">
+         </div>
+        <hr>
+
+
+        <div class="w3-col-xl-3 w3-col-lg-4 w3-col-medium-5 totals">
+          <div class="w3-border w3-border-gainsboro w3-px-3">
+            <div class="w3-border-bottom w3-border-gainsboro">
+              <p class="w3-text-uppercase w3-mb-0 w3-py-3"><strong>Order Summary</strong></p>
+                <div class="w3-border w3-border-gainsboro w3-p-3">
+            </div>
+            <div class="totals-item w3-d-flex w3-align-items-center w3-justify-content-between w3-margin-top-3">
+              <p class="w3-text-uppercase">Subtotal($)</p>
+              <p class="totals-value" id="cart-subtotal">0.0</p>
+            </div>
+            <div class="totals-item w3-d-flex w3-align-items-center w3-justify-content-between">
+              <p class="text-uppercase">Estimated Tax($)</p>
+              <p class="totals-value" id="cart-tax">0.0</p>
+            </div>
+            <div class="totals-item totals-item-total w3-d-flex w3-align-items-center w3-justify-content-between w3-margin-top-3 w3-pt-3 w3-border-top w3-border-gainsboro">
+              <p class="text-uppercase"><strong>Total</strong></p>
+              <p class="totals-value w3-font-weight-bold cart-total" id="finalTotal">0.0</p>
+            </div>
+        </div>
+
+  <label for="email">Enter your email:</label>
+  <input type="email" id="email" name="email">
+  <input type="submit">
+</form>
+      <p class="w3-text-grey">A confirmation email will be sent once you checkout your order.</p>
+      <hr>
+
+  </div>
+</div>
+
+
+
+
+</body>
+</html>
